@@ -1,7 +1,16 @@
 {
-  "db": {
-    "name": "engtest",
-    "user": "usr",
-    "pass": "123"
+  "development": {
+    "db": {
+      "name": "engtest",
+      "user": "usr",
+      "pass": "123"
+    }
+  },
+  "production": {
+    "db": {
+      "name": "engtest",
+      "user": "usr",
+      "pass": "123"
+    }
   }
 }
