@@ -1,16 +1,20 @@
 {
   "development": {
     "db": {
+      "host": "localhost",
       "name": "engtest",
-      "user": "usr",
+      "user": "engusr",
       "pass": "123"
-    }
+    },
+    "secret": "L0ndON_bR1dgE-iS>fa11ing*d0wn"
   },
   "production": {
     "db": {
+      "host": "localhost",
       "name": "engtest",
-      "user": "usr",
+      "user": "engusr",
       "pass": "123"
-    }
+    },
+    "secret": "L0ndON_bR1dgE-iS>fa11ing*d0wn"
   }
 }
