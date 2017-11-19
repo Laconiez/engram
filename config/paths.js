@@ -20,8 +20,8 @@ function ensureSlash(pathFile, needsSlash) {
 }
 
 // eslint-disable-next-line
-const { homepage } = require(appPackageJson);
-const getPublicUrl = () => envPublicUrl || homepage;
+const getPublicUrl = appPackageJson => envPublicUrl || require(appPackageJson).homepage;
+
 function getServedPath(appPackageJson) {
   const publicUrl = getPublicUrl(appPackageJson);
   const servedUrl = envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
@@ -34,9 +34,9 @@ module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveApp('src/index.js'),
-  appAdminJs: resolveApp('src/admin.js'),
-  appClientJs: resolveApp('src/client.js'),
+  appIndexJs: resolveApp('src/index.jsx'),
+  appAdminJs: resolveApp('src/admin.jsx'),
+  appClientJs: resolveApp('src/client.jsx'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
