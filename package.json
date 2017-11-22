@@ -70,18 +70,24 @@
     "whatwg-fetch": "2.0.3"
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ],
-    "plugins": [
-      "emotion"
-    ]
+    "presets": ["react-app"],
+    "plugins": ["emotion"]
   },
   "eslintConfig": {
     "env": {
       "browser": true,
       "node": true
     },
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          "components": ["Link"],
+          "specialLink": ["to", "hrefLeft", "hrefRight"],
+          "aspects": ["noHref", "invalidHref", "preferButton"]
+        }
+      ]
+    }
   }
 }
