@@ -1,5 +1,9 @@
 {
   "development": {
+    "server": {
+      "ip": "localhost",
+      "port": 3131
+    },
     "db": {
       "host": "localhost",
       "name": "engtest",
@@ -9,6 +13,10 @@
     "secret": "L0ndON_bR1dgE-iS>fa11ing*d0wn"
   },
   "production": {
+    "server": {
+      "ip": "localhost",
+      "port": 3131
+    },
     "db": {
       "host": "localhost",
       "name": "engtest",

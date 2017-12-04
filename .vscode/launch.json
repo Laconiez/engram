@@ -13,14 +13,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/server.js"
+      "name": "Start server",
+      "program": "${workspaceFolder}/src/server.js"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program with Sync",
-      "program": "${workspaceFolder}/server.js",
+      "name": "Start server with Sync",
+      "program": "${workspaceFolder}/src/server.js",
       "args": ["--sync"]
     }
   ]
