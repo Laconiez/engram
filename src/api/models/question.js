@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     topic_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'topics',
+        model: 'Topics',
         key: 'id',
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE,
       },
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     article_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'articles',
+        model: 'Articles',
         key: 'id',
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE,
       },

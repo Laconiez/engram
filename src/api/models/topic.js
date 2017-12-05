@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(300),
       validate: { len: [5, 300] },
     },
+    description: {
+      type: DataTypes.TEXT,
+    },
     enabled: {
       type: DataTypes.BOOLEAN,
     },
