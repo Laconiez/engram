@@ -3,6 +3,7 @@
 import Dashboard from '../pages/Dashboard';
 import Topics from '../pages/Topics';
 import TopicEdit from '../pages/TopicEdit';
+import ArticleEdit from '../pages/ArticleEdit';
 import NoMatch from '../pages/NoMatch';
 
 const routes = [
@@ -26,7 +27,13 @@ const routes = [
   {
     id: 'topic-edit',
     path: '/topics/:topicId',
+    exact: true,
     component: TopicEdit,
+  },
+  {
+    id: 'article-edit',
+    path: '/topics/:topicId/articles/:articleId',
+    component: ArticleEdit,
   },
   {
     id: 'no-match',

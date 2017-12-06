@@ -1,11 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import pt from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 
 import { createTopic, updateTopic, getTopic } from '../../requests/topics';
+import { getArticles } from '../../requests/articles';
 
-class TopicEdit extends PureComponent {
+class TopicEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +14,7 @@ class TopicEdit extends PureComponent {
         caption: '',
         description: '',
       },
+      articles: [],
     };
 
     this.saveChanges = this.saveChanges.bind(this);
@@ -24,6 +26,8 @@ class TopicEdit extends PureComponent {
       this.props.history.push('/404');
     } else if (topicId !== 'new') {
       getTopic(topicId).then(topic => this.setState({ data: topic.data }));
+
+      getArticles(topicId).then(articles => this.setState({ articles: articles.data }));
     }
   }
 
@@ -43,6 +47,7 @@ class TopicEdit extends PureComponent {
   render() {
     const { topicId } = this.props.match.params;
     const { description, caption } = this.state.data;
+    const { articles } = this.state;
 
     return (
       <div>
@@ -69,7 +74,14 @@ class TopicEdit extends PureComponent {
           <button onClick={this.saveChanges}>Save</button>
         </div>
         Articles
-        <div>articles there</div>
+        <div>
+          {articles.map(article => (
+            <div key={article.id}>
+              <Link to={`/topics/${topicId}/articles/${article.id}`}>{article.caption}</Link>
+            </div>
+          ))}
+        </div>
+        <Link to={`/topics/${topicId}/articles/new`}> new </Link>
       </div>
     );
   }

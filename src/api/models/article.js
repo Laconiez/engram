@@ -1,5 +1,3 @@
-const Sequelize = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
   const Article = sequelize.define('Article', {
     id: {
@@ -7,16 +5,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    text: DataTypes.STRING(30000),
+    caption: DataTypes.STRING(150),
+    text: DataTypes.TEXT,
     enabled: DataTypes.BOOLEAN,
-    topic_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Topics',
-        key: 'id',
-        deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE,
-      },
-    },
   });
 
   Article.associate = (models) => {
