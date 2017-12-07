@@ -2,9 +2,23 @@ const Router = require('koa-router');
 const models = require('../models');
 const Boom = require('boom');
 
+const questions = require('./questions');
+
 const router = new Router({
   prefix: 'articles',
 });
+
+router.use(
+  '/:articleId/',
+  questions.routes(),
+  questions.allowedMethods({
+    throw: true,
+    // eslint-disable-next-line
+    notImplemented: () => new Boom.notImplemented(),
+    // eslint-disable-next-line
+    methodNotAllowed: () => new Boom.methodNotAllowed(),
+  }),
+);
 
 router
   .get('/', async (ctx) => {

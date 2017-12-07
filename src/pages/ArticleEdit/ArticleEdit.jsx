@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // import ReactMarkdown from 'react-markdown';
 
 import { createArticle, updateArticle, getArticle } from '../../requests/articles';
+import { getQuestions } from '../../requests/questions';
 
 class ArticleEdit extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class ArticleEdit extends Component {
         caption: '',
         text: '',
       },
+      questions: [],
     };
 
     this.saveChanges = this.saveChanges.bind(this);
@@ -24,6 +26,8 @@ class ArticleEdit extends Component {
       this.props.history.push('/404');
     } else if (articleId !== 'new') {
       getArticle(topicId, articleId).then(article => this.setState({ data: article.data }));
+      getQuestions(topicId, articleId).then(questions =>
+        this.setState({ questions: questions.data }));
     }
   }
 
@@ -43,6 +47,7 @@ class ArticleEdit extends Component {
   render() {
     const { topicId, articleId } = this.props.match.params;
     const { caption, text } = this.state.data;
+    const { questions } = this.state;
     return (
       <div>
         test {topicId} {articleId}
@@ -64,6 +69,8 @@ class ArticleEdit extends Component {
           <button onClick={this.saveChanges}>Save</button>
         </div>
         <div>Questions</div>
+        <div>{questions.map(question => <div key={question.id}>{question.text}</div>)}</div>
+        <Link to={`/topics/${topicId}/articles/${articleId}/questions/new`}>new question</Link>
       </div>
     );
   }

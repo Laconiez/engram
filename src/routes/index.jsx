@@ -4,6 +4,7 @@ import Dashboard from '../pages/Dashboard';
 import Topics from '../pages/Topics';
 import TopicEdit from '../pages/TopicEdit';
 import ArticleEdit from '../pages/ArticleEdit';
+import QuestionEdit from '../pages/QuestionEdit';
 import NoMatch from '../pages/NoMatch';
 
 const routes = [
@@ -33,7 +34,13 @@ const routes = [
   {
     id: 'article-edit',
     path: '/topics/:topicId/articles/:articleId',
+    exact: true,
     component: ArticleEdit,
+  },
+  {
+    id: 'question-edit',
+    path: '/topics/:topicId/articles/:articleId/questions/:questionId',
+    component: QuestionEdit,
   },
   {
     id: 'no-match',

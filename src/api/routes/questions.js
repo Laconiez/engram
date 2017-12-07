@@ -28,7 +28,11 @@ router
     }
   })
   .post('/', async (ctx) => {
-    const questionData = { ...ctx.request.body, TopicId: ctx.params.topicId };
+    const questionData = {
+      ...ctx.request.body,
+      TopicId: ctx.params.topicId,
+      ArticleId: ctx.params.articleId,
+    };
     const question = await models.Question.create(questionData);
     ctx.body = question;
   })
