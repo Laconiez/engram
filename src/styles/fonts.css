@@ -1,4 +1,13 @@
 @font-face {
   font-family: 'LogoTitle';
-  src: url('./fonts/Fira_Sans/FiraSans-Medium.ttf');
+  src: url('./fonts/Merriweather/Merriweather-Black.ttf');
+}
+
+@font-face {
+  font-family: 'MainFont';
+  src: url('./fonts/Rubic/Rubik-Regular.ttf');
+}
+
+body {
+  font-family: 'MainFont', 'Times New Roman', sans-serif;
 }
